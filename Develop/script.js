@@ -9,8 +9,8 @@ var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "
 
 // empty arrays for user input and created password
 
-var inputArray [];
-var outputArray [];
+var inputArray = [];
+var outputArray = [];
 
 // call on the user for length of password and character types
 
@@ -36,6 +36,12 @@ if (lower){
 
 if (symbol){
   inputArray = inputArray.concat(symbolArray)
+}
+
+// generate output array based on parameters set by said choices
+
+for (var i = 0; i < numofCharacters; i++) {
+  outputArray.push ((Math.random() * inputArray.length));
 }
 
 // Get references to the #generate element
