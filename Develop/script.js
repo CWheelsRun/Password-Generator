@@ -22,6 +22,20 @@ var upper = confirm("Do you want uppercase letters?")
 var lower = confirm("Do you want lowercase letters?")
 var symbol = confirm("Do you want special characters or symbols?")
 
+// test for proper criteria (length between 8 and 128 & at least one character type chosen)
+
+if (numofCharacters < 8) {
+  alert("Password must have 8 or more characters!")
+}
+
+if (numofCharacters > 128) {
+  alert("Password must have no more than 128 characters!")
+}
+
+if (!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSpecialCharacters) {
+  alert('Password must include at least one type of character!')
+}
+
 // begin creating the "input array" based on the choices made in the prompt/confirmations
 
 if (number){
