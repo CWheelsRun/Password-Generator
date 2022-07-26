@@ -1,5 +1,7 @@
 // Assignment code here
 
+function generatePassword() {
+
 // create arrays for each type of character
 
 var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -42,6 +44,8 @@ if (symbol){
 
 for (var i = 0; i < numofCharacters; i++) {
   outputArray.push ((Math.random() * inputArray.length));
+}
+
 }
 
 // Get references to the #generate element
