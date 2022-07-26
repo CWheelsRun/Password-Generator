@@ -1,13 +1,17 @@
 // Assignment code here
 
-function generatePassword() {
-
 // create arrays for each type of character
 
-  var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ";", ":", ",", "<", ".", ">", "?"];
+var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var symbolArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ";", ":", ",", "<", ".", ">", "?"];
+
+// establish variable to prevent password from being displayed with incorrect length
+
+var correctLength = true;
+
+function generatePassword() {
 
   // empty arrays for user input and created password
 
@@ -24,12 +28,9 @@ function generatePassword() {
 
   // test for proper criteria (length between 8 and 128 & at least one character type chosen)
 
-  if (numofCharacters < 8) {
-    alert("Password must have 8 or more characters!");
-  }
-
-  if (numofCharacters > 128) {
-    alert("Password must have no more than 128 characters!");
+  if (numofCharacters < 8 || numofCharacters > 128) {
+    alert("Password must be between 8 and 128 characters!");
+    correctLength = false;
   }
 
   if (!upper && !lower && !number && !symbol) {
@@ -69,11 +70,12 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  passwordText.value = "";
+  var password = generatePassword();
+  if (correctLength){
   passwordText.value = password;
-
+  }
 }
 
 // Add event listener to generate button
