@@ -31,6 +31,8 @@ function generatePassword() {
   if (numofCharacters < 8 || numofCharacters > 128) {
     alert("Password must be between 8 and 128 characters!");
     correctLength = false;
+  } else {
+    correctLength = true;
   }
 
   if (!upper && !lower && !number && !symbol) {
